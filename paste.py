@@ -2,24 +2,6 @@ from PIL import ImageFont, ImageDraw, Image
 import argparse
 # https://blog.gtwang.org/programming/opencv-drawing-functions-tutorial/
 
-def paste(name, output):
-    image = Image.open("./base.png")
-    drawer = ImageDraw.Draw(image)
-    font_ttf = "./MicrosoftJhengHei.ttf"
-    name_len = len(name)
-    if name_len == 4:
-        font = ImageFont.truetype("./標楷體.ttf", 68)
-        drawer.text((922, 853), name, font=font, fill=(0, 0, 0))
-    elif name_len == 5:
-        font = ImageFont.truetype("./標楷體.ttf", 55)
-        drawer.text((918, 858), name, font=font, fill=(0, 0, 0))
-    elif name_len == 6:
-        font = ImageFont.truetype("./標楷體.ttf", 50)
-        drawer.text((912, 862), name, font=font, fill=(0, 0, 0))
-    else:
-        raise NotImplementedError
-    image.save(output)
-
 def paste_10_names(names, output):
     assert(len(names) <= 10)
     image = Image.open("./base.png")
